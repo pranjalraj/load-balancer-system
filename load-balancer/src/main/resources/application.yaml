@@ -1,3 +1,15 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: load-balancer
+
+loadbalancer:
+  instances: http://localhost:8081,http://localhost:8082
+  health-check:
+    path: /api/health
+    interval-ms: 15000
+  http:
+    connect-timeout-ms: 3000
+    read-timeout-ms: 5000
